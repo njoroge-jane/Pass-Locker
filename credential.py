@@ -1,7 +1,4 @@
 class Credential:
-    """
-    Class that stores existing user credentials.
-    """
 
     credential_list = [] 
 
@@ -20,16 +17,14 @@ class Credential:
   
     def save_credential(self):
 
-        '''
-        save_credential method saves credential objects into credential_list
-        '''
-
         Credential.credential_list.append(self)  
 
     def delete_credential(self):
 
-        '''
-        delete_credential method deletes a saved credential from the credential_list
-        '''
+        Credential.credential_list.remove(self)  
 
-        Credential.credential_list.remove(self)        
+@classmethod
+def find_by_account(cls,account):    
+     for credential in cls.credential_list:
+            if credential.account == account:
+                return credential               

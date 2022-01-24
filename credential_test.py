@@ -3,13 +3,6 @@ from credential import Credential
 
 class TestCredential(unittest.TestCase):
 
-    '''
-    Test class that defines test cases for the credential class behaviours.
-
-    Args:
-        unittest.TestCase: TestCase class that helps in creating test cases
-    '''
-
     def setUp(self):
         '''
         Set up method to run before each test cases.
@@ -62,14 +55,27 @@ if __name__ == '__main__':
       unittest.main() 
 
 def test_delete_credential(self):
-            '''
-            test_delete_credential to test if we can remove a credential from our credential list
-            '''
             self.new_credential.save_credential()
-            test_credential = Credential("Test","user","0712345678") # new contact
+            test_credential = Credential("Test","user","password") # new contact
             test_credential.save_credential()
 
-            self.new_credential.delete_credential()# Deleting a contact object
+            self.new_credential.delete_credential()
             self.assertEqual(len(Credential.credential_list),1)
 if __name__ == '__main__':
-    unittest.main()      
+    unittest.main()  
+
+    def test_find_credential_by_account(self):
+        '''
+        test to check if we can find a credential by account name and display information
+        '''
+
+        self.new_credential.save_credential()
+        test_credential = Credential("Test","user","password") # new contact
+        test_credential.save_credential()
+
+        found_credential = Credential.find_by_account("intagram")
+
+        self.assertEqual(found_credential.password,test_credential.password)
+
+
+   
