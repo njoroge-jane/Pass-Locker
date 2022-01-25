@@ -3,6 +3,7 @@
 from sqlalchemy import select
 from credential import Credential
 from user import User
+import random
 
 
 def create_credentials(account_name, user_name, password):
@@ -91,8 +92,19 @@ def main():
                             print('account name')
                             account = input()
 
-                            print('password')
-                            password = input()
+                            print('1. Create password \n 2.Generate password')
+                            choice = int(input())
+                            if choice == 1:
+
+                                print('password')
+                                password = input()
+                            elif choice == 2:
+                                randoms = random.randint(1000,9999)
+                                print(randoms) 
+                                password = randoms
+
+                            else:
+                                print('Not an option')      
 
                             save_account(create_account(account, password))
 
