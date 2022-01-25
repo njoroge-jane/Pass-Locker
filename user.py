@@ -22,7 +22,7 @@ class User:
                 return account
 
     @classmethod
-    def page_exists(cls, accounts):
+    def account_exists(cls, accounts):
         for account in cls.user_passwords:
             if account.account == accounts:
                 return account
