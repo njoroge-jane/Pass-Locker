@@ -4,7 +4,7 @@ from sqlalchemy import select
 from credential import Credential
 from user import User
 
-def create_credenntials(account_name, user_name, password):
+def create_credentials(account_name, user_name, password):
     credential = Credential(account_name, user_name, password)
     return credential
 
@@ -125,7 +125,7 @@ def main():
             password = input()
 
             save_account(create_account(
-                account_name, user_name, password))
+                account_name, password))
 
             print('Successful')
 
@@ -133,13 +133,13 @@ def main():
             if display_account():
                 for account in display_account():
                     print(
-                        f'{account.user_name}'
+                        f'{account}'
                     )
             else:
                 print('Nothing Yet')
 
         elif selected == 4:
-            print('Thank You')
+            print('Thank YOU')
             break
 
 
