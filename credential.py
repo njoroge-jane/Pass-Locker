@@ -21,13 +21,13 @@ def delete_credential(self):
         Credential.credential_list.remove(self)  
 
 @classmethod
-def find_by_user_name(cls,user_name):    
+def find_by_user_name(cls, user_name):    
      for credential in cls.credential_list:
             if credential.user_name == user_name:
                 return credential               
 
 @classmethod
-def account_exist(cls,user_name):
+def account_exists(cls, user_name):
         for coredential in cls.credential_list:
             if Credential.user_name == user_name:
                     return True
@@ -38,4 +38,4 @@ def display_credentials(cls):
         '''
         method that returns the credentials
         '''
-        return cls.credentials
+        return cls.credentials_list

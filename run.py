@@ -9,19 +9,19 @@ def create_credentials(account_name, user_name, password):
     return credential
 
 
-def save_credential(credentials):
-    credentials.save_credential()
+def save_credential(credential):
+    credential.save_credential()
 
 
-def delete_credential(credentials):
-    credentials.delete_credential()
+def delete_credential(credential):
+    credential.delete_credential()
 
 
 def find_accounts(user_name):
     return Credential.find_by_user_name(user_name)
 
 
-def isexist_accounts(user_name):
+def exist_accounts(user_name):
     return Credential.account_exists(user_name)
 
 

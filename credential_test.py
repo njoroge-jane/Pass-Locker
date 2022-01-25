@@ -27,7 +27,7 @@ def test_save_credential(self):
         test_save_credential test case to test if the credential object is saved into
          the credential list
         '''
-        self.new_credential.save_credential() # saving the new credential
+        self.new_credential.save_credential()
         self.assertEqual(len(Credential.credential_list), 1)
 
 
@@ -40,7 +40,7 @@ def test_save_multiple_credential(self):
             self.new_credential.save_credential()
             test_credential = Credential("telegram","mary","989898") # new credential
             test_credential.save_credential()
-            self.assertEqual(len(Credential.credential_list),2)
+            self.assertEqual(len(Credential.credential_list), 2)
 
 def test_delete_credential(self):
             self.new_credential.save_credential()
@@ -48,9 +48,9 @@ def test_delete_credential(self):
             test_credential.save_credential()
 
             self.new_credential.delete_credential()
-            self.assertEqual(len(Credential.credential_list),1)
+            self.assertEqual(len(Credential.credential_list), 1)
 
-def test_find_credential_by_account(self):
+def test_find_by_user_name(self):
         '''
         test to check if we can find a credential by user name and display information
         '''
@@ -61,10 +61,10 @@ def test_find_credential_by_account(self):
 
         found_credential = Credential.find_by_user_name("mary")
 
-        self.assertEqual(found_credential.user_name,test_credential.user_name)
+        self.assertEqual(found_credential.user_name, test_credential.user_name)
 
 
-def test_credential_exists(self):
+def test_account_exists(self):
 
         self.new_credential.save_credential()
         test_credential = Credential("telegram","mary","989898") 
@@ -79,7 +79,7 @@ def test_display_credentials(self):
         method that returns credentials saved
         '''
 
-        self.assertEqual(Credential.display_credential(self),Credential.credential_list)
+        self.assertEqual(Credential.display_credential(),Credential.credential_list)
         
 if __name__ ==  '__main__':
     unittest.main()
