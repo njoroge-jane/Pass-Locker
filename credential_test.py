@@ -43,7 +43,7 @@ def tearDown(self):
 # other test cases here
 def test_save_multiple_credential(self):
             '''
-            test_save_multiple_credential to check if we can save multiple credential
+            test_save_multiple_credentials to check if we can save multiple credential
             objects to our credential_list
             '''
             self.new_credential.save_credential()
@@ -78,4 +78,19 @@ if __name__ == '__main__':
         self.assertEqual(found_credential.password,test_credential.password)
 
 
-   
+def test_credential_exists(self):
+
+        self.new_credential.save_credential()
+        test_credential = Credential("Test","user","password") 
+        test_credential.save_credential()
+
+        credential_exists = Credential.credential_exist("password")
+
+        self.assertTrue(credential_exists)  
+
+def test_display_credentials(self):
+        '''
+        method that returns credentials saved
+        '''
+
+        self.assertEqual(Credential.display_credential(),Credential.credential_list)        
