@@ -11,31 +11,31 @@ class Credential:
         self.user_name = user_name
         self.password = password
 
-credential_list = [] 
+    credential_list = [] 
   
-def save_credential(self):
+    def save_credential(self):
 
         Credential.credential_list.append(self)  
-def delete_credential(self):
+    def delete_credential(self):
 
         Credential.credential_list.remove(self)  
 
-@classmethod
-def find_by_user_name(cls, user_name):    
+    @classmethod
+    def find_by_user_name(cls, user_name):    
      for credential in cls.credential_list:
             if credential.user_name == user_name:
                 return credential               
 
-@classmethod
-def account_exists(cls, user_name):
-        for coredential in cls.credential_list:
-            if Credential.user_name == user_name:
+    @classmethod
+    def account_exists(cls, user_name):
+        for credential in cls.credential_list:
+            if credential.user_name == user_name:
                     return True
 
         return False
-@classmethod
-def display_credentials(cls):
+    @classmethod
+    def display_credentials(cls):
         '''
         method that returns the credentials
         '''
-        return cls.credentials_list
+        return cls.credential_list

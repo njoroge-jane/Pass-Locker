@@ -64,15 +64,19 @@ def main():
 
         selected = int(input())
         if selected == 1:
+            print('Enter account name')
+            name_account = input()
             print('Enter username')
             username = input()
             print('Enter passoword')
             password = input()
-            account = find_accounts(username)
-            if account.user_name == username and account.password == password:
+            account = find_account(name_account)
+            if account:
 
-                print('logged in ')
-                while True:
+                if account.account == name_account and account.password == password:
+
+                   print('logged in ')
+                   while True:
 
                     print(
                         f'Welcome {username}, select action below using corresponding number')
@@ -109,8 +113,8 @@ def main():
                                 print(
                                     f'{acc.account}:{acc.password}'
                                 )
-                        else:
-                            print('Does not exist')
+            else:
+                print('Does not exist')
 
         if selected == 2:
             print('Sign Up New acc')
@@ -133,7 +137,7 @@ def main():
             if display_account():
                 for account in display_account():
                     print(
-                        f'{account}'
+                        f'{account.account}'
                     )
             else:
                 print('Nothing Yet')
