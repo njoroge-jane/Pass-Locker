@@ -28,7 +28,7 @@ def test_save_credential(self):
          the credential list
         '''
         self.new_credential.save_credential() # saving the new credential
-        self.assertEqual(len(Credential.credential_list),1)
+        self.assertEqual(len(Credential.credential_list), 1)
 
 
 
@@ -79,7 +79,7 @@ def test_display_credentials(self):
         method that returns credentials saved
         '''
 
-        self.assertEqual(Credential.display_credential(),Credential.credential_list)
+        self.assertEqual(Credential.display_credential(self),Credential.credential_list)
         
 if __name__ ==  '__main__':
     unittest.main()
