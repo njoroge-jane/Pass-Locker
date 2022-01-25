@@ -2,16 +2,14 @@ class Credential:
 
     credential_list = [] 
 
-def __init__(self,account,user_name,password):
+def __init__(self,account_name,user_name,password):
 
         '''
         Args:
-            account: New credential account.
             user_name : New credential user name.
             password: New credential password.
         '''
-
-        self.account = account
+        self.account_name= account_name
         self.user_name = user_name
         self.password = password
   
@@ -23,15 +21,15 @@ def delete_credential(self):
         Credential.credential_list.remove(self)  
 
 @classmethod
-def find_by_account(cls,account):    
+def find_by_user_name(cls,user_name):    
      for credential in cls.credential_list:
-            if credential.account == account:
+            if credential.user_name == user_name:
                 return credential               
 
 @classmethod
-def account_exist(cls,account):
+def account_exist(cls,user_name):
         for coredential in cls.credential_list:
-            if Credential.account == account:
+            if Credential.user_name == user_name:
                     return True
 
         return False
