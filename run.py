@@ -101,8 +101,8 @@ def main():
 
                         account = input()
                         if isexist_account(account):
-                            remove_account = (account)
-                            delete_account(remove_account)
+                            # remove_account = (account)
+                            delete_account(isexist_account(account))
 
                         else:
                             print(f'{account} does not exist')
