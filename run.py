@@ -4,6 +4,7 @@ from sqlalchemy import select
 from credential import Credential
 from user import User
 
+
 def create_credentials(account_name, user_name, password):
     credential = Credential(account_name, user_name, password)
     return credential
@@ -54,7 +55,6 @@ def display_account():
     return User.display_account()
 
 
-    
 def main():
     print('PASSWORD LOCKER')
     print('Select action below')
@@ -75,44 +75,44 @@ def main():
 
                 if account.account == name_account and account.password == password:
 
-                   print('logged in ')
-                   while True:
+                    print('logged in ')
+                    while True:
 
-                    print(
-                        f'Welcome {username}, select action below using corresponding number')
+                        print(
+                            f'Welcome {username}, select action below using corresponding number')
 
-                    print(
-                        ' 1. Save new password \n 2. Delete password \n 3. Display saved passwords')
+                        print(
+                            ' 1. Save new password \n 2. Delete password \n 3. Display saved passwords')
 
-                    selectOption = int(input())
-                    if selectOption == 1:
-                        print('New account')
+                        selectOption = int(input())
+                        if selectOption == 1:
+                            print('New account')
 
-                        print('account name')
-                        account = input()
+                            print('account name')
+                            account = input()
 
-                        print('password')
-                        password = input()
+                            print('password')
+                            password = input()
 
-                        save_account(create_account(account, password))
+                            save_account(create_account(account, password))
 
-                    elif selectOption == 2:
-                        print("Enter the name of the account you want to delete")
+                        elif selectOption == 2:
+                            print("Enter the name of the account you want to delete")
 
-                        account = input()
-                        if isexist_account(account):
-                            # remove_account = (account)
-                            delete_account(isexist_account(account))
+                            account = input()
+                            if isexist_account(account):
+                                # remove_account = (account)
+                                delete_account(isexist_account(account))
 
-                        else:
-                            print(f'{account} does not exist')
+                            else:
+                                print(f'{account} does not exist')
 
-                    elif selectOption == 3:
-                        if display_account():
-                            for acc in display_account():
-                                print(
-                                    f'{acc.account}:{acc.password}'
-                                )
+                        elif selectOption == 3:
+                            if display_account():
+                                for acc in display_account():
+                                    print(
+                                        f'{acc.account}:{acc.password}'
+                                    )
             else:
                 print('Does not exist')
 

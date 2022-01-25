@@ -59,7 +59,7 @@ class Test(unittest.TestCase):
         self.new_password.save_account()
         test_pass = User('twitter', '545454')
         test_pass.save_account()
-        found_account =User.find_by_account('twitter')
+        found_account = User.find_by_account('twitter')
         self.assertEqual(found_account.account, test_pass.account)
 
     def account_exists(self):
